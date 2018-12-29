@@ -5,4 +5,4 @@
 
 
 
-#endif
+#endif  /* LIGHT_H_ */

@@ -3,4 +3,4 @@
 
 #include <stdint.h>
 
-#endif
+#endif /* DIAGNOSTIC_H_ */

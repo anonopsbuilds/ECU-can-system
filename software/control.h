@@ -7,4 +7,4 @@ typedef enum {LIGHT_ON_FAST, LIGHT_ON_SLOW, LIGHT_OFF_FAST, LIGHT_OFF_SLOW, LIGH
 typedef enum {LIGHT_GET_VOLTAGE_CURRENT, LIHGT_GET_STATE}command_all_lamp;
 
 
-#endif
+#endif  /* CONTROL_H_ */
