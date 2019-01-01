@@ -68,6 +68,12 @@ void DiagnosticInit(void)
 }
 // initialization ADC 1
 
+// function read sens voltage and current
+/*
+    NEED CALIBRATION for current and voltage!!!
+		full calibration is executed in work device
+    function print voltage - volt, current - ampers
+*/
 void Diagnostic_GetVoltAndCurr(uint8_t *voltage, uint8_t *current)
 {
 		HAL_ADCEx_InjectedStart(&hadc1);                                           // start conversion
@@ -75,6 +81,9 @@ void Diagnostic_GetVoltAndCurr(uint8_t *voltage, uint8_t *current)
 		data_adc = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_1);         // channel 0 ADC
 	  data_adc11 = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_2);       // channe2 1 ADC
 		HAL_ADCEx_InjectedStop(&hadc1);                                            // stop conversion	
-		*voltage = data_adc;                                                       // return voltage
-	  *current = data_adc11;                                                     // return current
+		*voltage = ( data_adc * voltage_ADC / scalind_ADC);                        // return voltage
+	  *current = ( data_adc11 * voltage_ADC / scalind_ADC);                      // return current 	
 }
+// function read sens voltage and current
+
+
