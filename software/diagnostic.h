@@ -1,7 +1,9 @@
 #ifndef DIAGNOSTIC_H
 #define DIAGNOSTIC_H
-#define scalind_ADC 4096      // default 4096
-#define voltage_ADC 3.3       // voltage power ADC, default 3.3 voltage
+#define SCALING_ADC 4095          // default 4096
+#define VOLTAGE_ADC 3300          // voltage power ADC, default 3.3 voltage
+#define RANGE_VOLTAGE 18000       // max input 18 volt
+#define RANGE_CURRENT 18000       // max 18 ampers
 #include <stdint.h>
 
 void DiagnosticInit(void);

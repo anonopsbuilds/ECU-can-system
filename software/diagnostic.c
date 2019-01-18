@@ -4,8 +4,8 @@
 
 ADC_HandleTypeDef hadc1;                                                       // ADC 1
 
-uint8_t data_adc;                                                              // for voltage 
-uint8_t data_adc11;                                                            // for current
+uint32_t data_adc;                                                              // for voltage 
+uint32_t data_adc11;                                                            // for current
 
 // initialization ADC 1 
 /*
@@ -73,16 +73,20 @@ void DiagnosticInit(void)
     NEED CALIBRATION for current and voltage!!!
 		full calibration is executed in work device
     function print voltage - volt, current - ampers
+    
 */
 void Diagnostic_GetVoltAndCurr(uint8_t *voltage, uint8_t *current)
 {
-		HAL_ADCEx_InjectedStart(&hadc1);                                           // start conversion
-		HAL_ADC_PollForConversion(&hadc1,100);                                     // mode conversion
-		data_adc = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_1);         // channel 0 ADC
-	  data_adc11 = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_2);       // channe2 1 ADC
-		HAL_ADCEx_InjectedStop(&hadc1);                                            // stop conversion	
-		*voltage = ( data_adc * voltage_ADC / scalind_ADC);                        // return voltage
-	  *current = ( data_adc11 * voltage_ADC / scalind_ADC);                      // return current 	
+	
+		HAL_ADCEx_InjectedStart(&hadc1);                                        							   // start conversion
+		HAL_ADC_PollForConversion(&hadc1,100);                                    							 // mode conversion
+		data_adc = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_1);       							   // channel 0 ADC
+	  data_adc11 = HAL_ADCEx_InjectedGetValue(&hadc1,ADC_INJECTED_RANK_2);      							 // channe2 1 ADC
+		HAL_ADCEx_InjectedStop(&hadc1);                                          							   // stop conversion	
+	
+		*voltage = (((data_adc * VOLTAGE_ADC)/ SCALING_ADC)/100)*(RANGE_VOLTAGE/VOLTAGE_ADC);    // return voltage
+	  *current = (((data_adc11 * VOLTAGE_ADC)/ SCALING_ADC)/100)*(RANGE_CURRENT/VOLTAGE_ADC);  // return current 
+ 
 }
 // function read sens voltage and current
 
