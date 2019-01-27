@@ -1,8 +1,3 @@
-// light c
-///htim3, TIM_CHANNEL_1 : LIGHT_DISTANT
-///htim3, TIM_CHANNEL_2 : LIGHT_PARKING
-///htim3, TIM_CHANNEL_3 : LIGHT_DIPPED
-///htim4  for SLOW_SWITCH LED
 #include "light.h"
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx_it.h"
@@ -48,10 +43,10 @@ void Light_On(type_light light, switch_speed speed)  // led on
 					channel_1 = 1;
 					if(channel_2==0 && channel_3 ==0)
 						{
-					MX_TIM3_Init();
-					MX_TIM4_Init();
-					HAL_TIM_Base_Start(&htim4);
-					HAL_TIM_Base_Start_IT(&htim4);
+							MX_TIM3_Init();
+							MX_TIM4_Init();
+							HAL_TIM_Base_Start(&htim4);
+							HAL_TIM_Base_Start_IT(&htim4);
 						}
 					HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1); 					  
 				}
@@ -92,10 +87,10 @@ void Light_On(type_light light, switch_speed speed)  // led on
 					channel_3 = 1;
 					if(channel_1==0 && channel_2 ==0)
 						{
-					MX_TIM3_Init();
-					MX_TIM4_Init();
-					HAL_TIM_Base_Start(&htim4);
-					HAL_TIM_Base_Start_IT(&htim4);
+							MX_TIM3_Init();
+							MX_TIM4_Init();
+							HAL_TIM_Base_Start(&htim4);
+							HAL_TIM_Base_Start_IT(&htim4);
 						}
 					HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);	
 				}								
