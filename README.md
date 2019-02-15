@@ -1,11 +1,21 @@
 # ECU can system
 
-Система управління електронними блоками автомобіля(скутера/велосипеда) по шині CAN.
+System for controlilng auto(scooter, bycycle) electronic blocks by CAN bus.
 
 ## General deacription
-Система складається з центрального блоку та допоміжних. Центральний блок отримує дані від всіх інших блоків та керує їхньою роботою 
 
-### Блок1: Headlight ECU
+MCU pins:
+PORT     - CAN_H
+PORT     - CAN_L
+PORT     - dipped lights
+PORT     - headlights 
+PORT     - parking lights
+PORT     - current measurment
+PORT     - voltage measurment
+PORT     - I2C_DATA
+PORT     - I2C_CLK
+
+### Block_1: Headlight ECU
 CAN ID:
 Function:
 - Dipped beam headlights
