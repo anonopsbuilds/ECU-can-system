@@ -4,16 +4,16 @@ System for controlilng auto(scooter, bycycle) electronic blocks by CAN bus.
 
 ## General deacription
 
-MCU pins:
-PORT     - CAN_H
-PORT     - CAN_L
-PORT     - dipped lights
-PORT     - headlights 
-PORT     - parking lights
-PORT     - current measurment
-PORT     - voltage measurment
-PORT     - I2C_DATA
-PORT     - I2C_CLK
+MCU pins:   
+* PA12 - CAN_TX   
+* PA11 - CAN_RX   
+* PORT - dipped lights    
+* P- headlights   
+* P- parking lights   
+* P- current measurment   
+* P- voltage measurment   
+* P- I2C_DATA     
+* P- I2C_CLK  
 
 ### Block_1: Headlight ECU
 CAN ID:
