@@ -7,13 +7,13 @@ System for controlilng auto(scooter, bycycle) electronic blocks by CAN bus.
 MCU pins:   
 * PA12 - CAN_TX   
 * PA11 - CAN_RX   
-* PORT - dipped lights    
-* P- headlights   
-* P- parking lights   
-* P- current measurment   
-* P- voltage measurment   
-* P- I2C_DATA     
-* P- I2C_CLK  
+* PB0 - dipped lights    
+* PA6 - headlights   
+* PA7 - parking lights   
+* PA1 - current measurment   
+* PA0 - voltage measurment   
+* PB7- I2C_DATA     
+* PB6- I2C_CLK  
 
 ### Block_1: Headlight ECU
 CAN ID:
